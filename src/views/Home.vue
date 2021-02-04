@@ -1,8 +1,7 @@
 <template>
   <div class="home columns">
-    <div class="column">hola</div>
     <div class="column">
-      {{ testData }}
+      {{ calendario }}
     </div>
   </div>
 </template>
@@ -18,8 +17,8 @@ import mainStore from "@/store/MainStore";
 export default class Home extends Vue {
   private mainStore = mainStore.context(this.$store);
 
-  private get testData(): boolean {
-    return this.mainStore.state.testData;
+  private get calendario(): any {
+    return this.mainStore.state.calendario;
   }
 }
 </script>

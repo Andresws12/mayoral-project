@@ -1,31 +1,23 @@
 import { Getters, Mutations, Actions, Module } from "vuex-smart-module";
 
+import calendario from "../assets/json/calendario.json";
+
+import Calendar from "../models/Calendar";
+
 class MainState {
-  public testData: boolean = true;
+  public calendario: Calendar = calendario;
 }
 
-class MainMutations extends Mutations<MainState> {
-  public changeTestData(): void {
-    this.state.testData = !this.state.testData;
-  }
-}
+class MainMutations extends Mutations<MainState> {}
 
-class MainGetters extends Getters<MainState> {
-  public get reverseTestdata(): boolean {
-    return !this.state.testData;
-  }
-}
+class MainGetters extends Getters<MainState> {}
 
 class MainActions extends Actions<
   MainState,
   MainGetters,
   MainMutations,
   MainActions
-> {
-  public changeTestData(): void {
-    this.commit("changeTestData");
-  }
-}
+> {}
 const mainStore = new Module({
   state: MainState,
   getters: MainGetters,
