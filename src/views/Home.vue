@@ -1,18 +1,27 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+  <div class="home columns">
+    <div class="column">hola</div>
+    <div class="column">
+      {{ testData }}
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
+
+import mainStore from "@/store/MainStore";
 
 @Component({
-  components: {
-    HelloWorld
-  }
+  name: "Home",
 })
-export default class Home extends Vue {}
+export default class Home extends Vue {
+  private mainStore = mainStore.context(this.$store);
+
+  private get testData(): boolean {
+    return this.mainStore.state.testData;
+  }
+}
 </script>
+
+<style lang="scss" scoped></style>
