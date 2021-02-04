@@ -15,7 +15,7 @@ const root = new Module({
   },
 });
 
-const persistedPaths = ["path"];
+const persistedPaths = ["mainStore"];
 export const store = createStore(root, {
   plugins: [createPersistedState({ paths: persistedPaths })],
 });
